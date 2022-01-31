@@ -1,0 +1,43 @@
+body {
+    background-color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+#container {
+    background: #696969;
+    margin: auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#heading {
+    font-size: 36px;
+    text-align: center;
+    padding: 36px;
+    margin: 60px;
+}
+
+#settings {
+    padding-bottom: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+}
+
+#grid {
+    background: white;
+    max-width: 500px;
+    max-height: 500px;
+    display: inline-block;
+    margin-bottom: 100px;
+}
+
+.row {
+    display: flex;
+}
+
+.pixel {
+    background: white;
+}
+
