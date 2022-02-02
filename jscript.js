@@ -1,7 +1,6 @@
 let pixels = 16
 const grid = document.querySelector('#grid')
 
-
 function rowCreator(pixels) {
     let div
     let rows = []
@@ -28,13 +27,33 @@ function gridDraw(pixels) {
         pixelCreator(pixels, row)
         grid.appendChild(row)
     });
+
     let pixelArray = document.getElementsByClassName('pixel')
     pixelArray = Array.from(pixelArray)
     pixelArray.forEach(pixel => {
-        console.log(pixel)
         pixel.style.width = `${500/pixels}px`
         pixel.style.height = `${500/pixels}px`
+    
+    pixelArray.forEach(pixel => {
+        pixel.addEventListener('mouseover', () => {
+            pixel.style.backgroundColor = 'black'
+        })
+    })
     });
 }
+
+function clear() {
+    let pixelArray = document.getElementsByClassName('pixel')
+    console.log('here!')
+    pixelArray = Array.from(pixelArray)
+    pixelArray.forEach(pixel => pixel.style.backgroundColor = 'white')
+}
+
+const btn = document.querySelector('#clear');
+let size = document.querySelector('#pixelInput').value
+btn.addEventListener('click', () => clear())
+resize.addEventListener
+
+
 
 gridDraw(pixels)
