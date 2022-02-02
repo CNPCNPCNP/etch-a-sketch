@@ -22,18 +22,21 @@ function pixelCreator(columns, row) {
 }
 
 function gridDraw(pixels) {
+    //Delete all rows from old grid to clear it
     let rowArray = document.getElementsByClassName('row')
     rowArray = Array.from(rowArray)
     rowArray.forEach(row => {
         grid.removeChild(row)
     })
     
+    //Create rows and fill each row with divs before adding to the page
     let rows = rowCreator(pixels)
     rows.forEach(row => {
         pixelCreator(pixels, row)
         grid.appendChild(row)
     });
 
+    //Add properties to pixels so that they display prop
     let pixelArray = document.getElementsByClassName('pixel')
     pixelArray = Array.from(pixelArray)
     pixelArray.forEach(pixel => {
