@@ -22,6 +22,12 @@ function pixelCreator(columns, row) {
 }
 
 function gridDraw(pixels) {
+    let rowArray = document.getElementsByClassName('row')
+    rowArray = Array.from(rowArray)
+    rowArray.forEach(row => {
+        grid.removeChild(row)
+    })
+    
     let rows = rowCreator(pixels)
     rows.forEach(row => {
         pixelCreator(pixels, row)
@@ -44,16 +50,25 @@ function gridDraw(pixels) {
 
 function clear() {
     let pixelArray = document.getElementsByClassName('pixel')
-    console.log('here!')
     pixelArray = Array.from(pixelArray)
     pixelArray.forEach(pixel => pixel.style.backgroundColor = 'white')
 }
 
-const btn = document.querySelector('#clear');
-let size = document.querySelector('#pixelInput').value
-btn.addEventListener('click', () => clear())
-resize.addEventListener
+function resize() {
+    let pixels = parseInt(document.getElementById("pixelInput").value);
+    if (Number.isNaN(pixels) || pixels < 10 || pixels > 100) {
+        alert('Please enter a number between 10 & 100!')
+    }
+    else {
+        console.log('redrawing boss')
+        clear()
+        gridDraw(pixels)
+    }
+}
 
-
+const clearButton = document.querySelector('#clear');
+const resizeButton = document.querySelector('#resize');
+clearButton.addEventListener('click', () => clear())
+resizeButton.addEventListener('click', () => resize())
 
 gridDraw(pixels)
