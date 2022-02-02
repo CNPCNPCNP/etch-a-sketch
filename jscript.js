@@ -1,4 +1,3 @@
-let pixels = 16
 const grid = document.querySelector('#grid')
 
 function rowCreator(pixels) {
@@ -21,7 +20,7 @@ function pixelCreator(columns, row) {
     }
 }
 
-function gridDraw(pixels) {
+function gridDraw(pixels = 16) {
     //Delete all rows from old grid to clear it
     let rowArray = document.getElementsByClassName('row')
     rowArray = Array.from(rowArray)
@@ -36,7 +35,7 @@ function gridDraw(pixels) {
         grid.appendChild(row)
     });
 
-    //Add properties to pixels so that they display prop
+    //Add properties to pixels so that they display
     let pixelArray = document.getElementsByClassName('pixel')
     pixelArray = Array.from(pixelArray)
     pixelArray.forEach(pixel => {
@@ -74,4 +73,4 @@ const resizeButton = document.querySelector('#resize');
 clearButton.addEventListener('click', () => clear())
 resizeButton.addEventListener('click', () => resize())
 
-gridDraw(pixels)
+gridDraw()
