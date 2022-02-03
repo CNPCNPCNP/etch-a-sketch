@@ -1,6 +1,5 @@
 const container = document.querySelector('#container')
-const grid = document.createElement('div')
-grid.classList.add('grid')
+const grid = document.querySelector('#grid')
 
 function rowCreator(pixels) {
   let div
@@ -20,6 +19,14 @@ function pixelCreator(columns, row) {
     div.classList.add('pixel')
     row.appendChild(div)
     }
+  
+  let pixelArray = document.getElementsByClassName('pixel')
+  pixelArray = Array.from(pixelArray)
+  pixelArray.forEach(pixel => {
+    pixel.addEventListener('mouseover', () => {
+      pixel.style.backgroundColor = 'black'
+    })
+  });
 }
 
 function gridDraw(pixels = 16) {
@@ -37,21 +44,13 @@ function gridDraw(pixels = 16) {
     grid.appendChild(row)
   });
 
-  container.appendChild(grid)
-
   //Add properties to pixels so that they display
   let pixelArray = document.getElementsByClassName('pixel')
   pixelArray = Array.from(pixelArray)
   pixelArray.forEach(pixel => {
     pixel.style.width = `${500/pixels}px`
     pixel.style.height = `${500/pixels}px`
-  
-  pixelArray.forEach(pixel => {
-    pixel.addEventListener('mouseover', () => {
-        pixel.style.backgroundColor = 'black'
-    })
   })
-  });
 }
 
 function clear() {
@@ -62,11 +61,10 @@ function clear() {
 
 function resize() {
   let pixels = parseInt(document.getElementById("pixelInput").value);
-  if (Number.isNaN(pixels) || pixels < 10 || pixels > 100) {
-    alert('Please enter a number between 10 & 100!')
+  if (Number.isNaN(pixels) || pixels < 10 || pixels > 80) {
+    alert('Please enter a number between 10 & 80!')
   }
   else {
-    console.log('redrawing boss')
     clear()
     gridDraw(pixels)
   }
