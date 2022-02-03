@@ -20,13 +20,12 @@ function pixelCreator(columns, row) {
     row.appendChild(div)
     }
   
-  let pixelArray = document.getElementsByClassName('pixel')
-  pixelArray = Array.from(pixelArray)
-  pixelArray.forEach(pixel => {
-    pixel.addEventListener('mouseover', () => {
-      pixel.style.backgroundColor = 'black'
+  let pixelArray = document.querySelectorAll('.pixel')
+  for (let i = 0; i < pixelArray.length; i++) {
+    pixelArray[i].addEventListener('mouseover', () => {
+      pixelArray[i].style.backgroundColor = 'black'
     })
-  });
+  }
 }
 
 function gridDraw(pixels = 16) {
@@ -45,12 +44,11 @@ function gridDraw(pixels = 16) {
   });
 
   //Add properties to pixels so that they display
-  let pixelArray = document.getElementsByClassName('pixel')
-  pixelArray = Array.from(pixelArray)
-  pixelArray.forEach(pixel => {
-    pixel.style.width = `${500/pixels}px`
-    pixel.style.height = `${500/pixels}px`
-  })
+  let pixelArray = document.querySelectorAll('.pixel')
+  for (let i = 0; i < pixelArray.length; i++) {
+    pixelArray[i].style.width = `${500/pixels}px`
+    pixelArray[i].style.height = `${500/pixels}px`
+  }
 }
 
 function clear() {
@@ -63,10 +61,12 @@ function resize() {
   let pixels = parseInt(document.getElementById("pixelInput").value);
   if (Number.isNaN(pixels) || pixels < 10 || pixels > 80) {
     alert('Please enter a number between 10 & 80!')
+    document.querySelector("#pixelForm").reset();
   }
   else {
     clear()
     gridDraw(pixels)
+    document.querySelector("#pixelForm").reset();
   }
 }
 
