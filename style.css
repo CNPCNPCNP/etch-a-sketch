@@ -25,7 +25,7 @@ body {
     gap: 18px;
 }
 
-#grid {
+.grid {
     background: white;
     max-width: 500px;
     max-height: 500px;
