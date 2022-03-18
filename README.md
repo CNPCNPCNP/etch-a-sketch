@@ -1,8 +1,8 @@
-[Live Page](https://cnpcnpcnp.github.io/etch-a-sketch/)
-
 This project is a basic sketchpad contained in a browser, built using HTML, CSS
 and JavaScript. The intention is to develop and showcase my skills in front-end
 web development. 
+
+[Live Page](https://cnpcnpcnp.github.io/etch-a-sketch/)
 
 ## Functionality
 
